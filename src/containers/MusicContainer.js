@@ -13,7 +13,7 @@ class MusicContainer extends Component{
 
     fetch(url)
       .then(res => res.json())
-      .then(data => this.setState({songs: data}))
+      .then(data => this.setState({songs: data.feed.entry}))
       .catch(err => console.error)
   }
 
@@ -21,7 +21,7 @@ class MusicContainer extends Component{
     return(
       <div>
         <h1>Top 20 Songs</h1>
-        <MusicList songs={this.state.songs.feed}/>
+        <MusicList songs={this.state.songs}/>
       </div>
     )
   }
